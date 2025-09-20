@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "quest-generator-bot"
+version = "0.1.0"
+description = "Discord bot qui génère des quêtes à partir d'un synopsis."
+authors = [{ name = "Tristan", email = "you@example.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+"discord.py>=2.4.0",
+"python-dotenv>=1.0.1",
+]
+
+
+[project.optional-dependencies]
+dev = [
+"ruff>=0.6.9",
+"pytest>=8.3.2",
+"pytest-asyncio>=0.24.0",
+]
+
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+exclude = [".venv", "build", "dist"]
+
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W"]
+ignore = []
+
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-q"
